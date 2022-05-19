@@ -1,0 +1,64 @@
+#include <iostream>
+int main(void) {
+	int n, i = 0, x, index[2] = {0,0}, w = 0, pr = 1, max = 0;
+	printf_s("enter the number of the array:\n");
+	scanf_s("%d", &n);
+	int* arr = new int[n];
+	printf_s("Enter the number arrays:\n");
+	while (i < n)
+	{
+		scanf_s("%d ", &arr[i]);
+		i++;
+	}
+	for (int i = 0; i < n; i++)
+	{
+		printf_s("arr[%d] = %d\n", i, arr[i]);
+	}
+	max = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] >= max)
+		{
+			max = arr[i];
+		}
+	}
+	printf_s("\narrays max = %d \n\n", max);
+	printf("the product of array elements located between the first and second zero elements:");
+	for (int i = 0; i < n; i++)
+	{
+		x = arr[i] % 10;
+		if (x == 0)
+		{
+			if (w > 1) break;
+			index[w] = i;
+			w++;
+		}
+	}
+	if (index[0] == 0 && index[1] == 0)
+	{
+		printf("V massive net 0-element!"); return 0;
+	}
+	if (index[1] == 0) { printf("V massive est tolko odin element!"); return 0; }
+	printf_s("\nindex (%d ; %d)", index[0], index[1]);
+	for (int i = index[0]; i < index[1]; i++)
+	{
+		pr *= arr[i];
+	}
+	printf_s("\nresault  :  %d\n\n", pr / arr[index[0]]);
+	printf("odd and even array elements:\n");
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] % 2 != 0)
+		{
+			printf("%d ", arr[i]);
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] % 2 == 0)
+		{
+			printf("%d ", arr[i]);
+		}
+	}
+	printf("\n");
+		return 0;}
